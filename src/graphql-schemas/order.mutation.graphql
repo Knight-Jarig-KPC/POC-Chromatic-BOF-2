@@ -1,0 +1,5 @@
+mutation createOrderPlaceOrder($input: CreatePlaceOrderInput!) {
+    createOrderPlaceOrder(input: $input) {
+        orderId
+    }
+}

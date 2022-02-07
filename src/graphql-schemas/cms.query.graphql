@@ -1,0 +1,23 @@
+query contents($page: Int!, $limit: Int!, $titleName: String, $url: String, $contentType: ContentEnumType) {
+    contents(
+      page: $page
+      recordsPerPage: $limit
+      titleName: $titleName
+      url: $url
+      contentType: $contentType
+    ) {
+      data {
+        ... on StaticPages {
+          id
+          updatedDate
+          url
+          titleName
+          author
+          status
+          contentType
+        }
+      }
+      totalCount
+      recordsPerPage
+    }
+  }

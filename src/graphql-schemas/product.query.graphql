@@ -1,0 +1,179 @@
+query getProduct(
+    $sku: String!
+    $sortType: SortEnumType
+    $sortBy: SizeChartSortableFieldEnum
+  ) {
+    productNode(sku: $sku) {
+      ... on ProductNodeLocale {
+        type
+        sku
+        name {
+          en
+          th
+          cn
+        }
+        options {
+          isInstalmentAvailable
+        }
+        dutyFree
+        pickup
+        ageRestriction
+        lag
+        isDisable
+        isVisibility
+        prettyUrl
+        materials {
+          en
+          th
+          cn
+        }
+        ingredients {
+          en
+          th
+          cn
+        }
+        warranty {
+          en
+          th
+          cn
+        }
+        tags {
+          name
+          status
+          label {
+            en
+          }
+        }
+        stock {
+          price
+          previousPrice
+          syncStatus
+          quantityByLocations {
+            location
+            quantity
+          }
+        }
+        parentSku
+        longDescription {
+          en
+          th
+          cn
+        }
+        shortDescription {
+          en
+          th
+          cn
+        }
+        variation {
+          label {
+            en
+          }
+          display
+          name
+        }
+        variationValue {
+          name
+          label {
+            en
+            th
+            cn
+          }
+          value {
+            name
+            label {
+              en
+            }
+          }
+        }
+        images {
+          filename
+          baseUri
+          hash
+          version
+        }
+        videos
+        prettyUrl
+
+        brand {
+          name
+          label {
+            en
+          }
+          code
+        }
+        masterCategories {
+          name
+          label {
+            en
+          }
+        }
+        sapCategory
+        sapCategoryName
+        supplierCode
+        batch
+        attributeValues {
+          name
+          value {
+            name
+            label {
+              en
+            }
+          }
+        }
+        materials {
+          en
+          th
+          cn
+        }
+        ingredients {
+          en
+          th
+          cn
+        }
+        warranty {
+          en
+          th
+          cn
+        }
+        relatedProductSkus
+        relatedProducts {
+          sku
+          name {
+            th
+          }
+          state
+          images {
+            baseUri
+            filename
+            version
+            prefix
+            hash
+          }
+        }
+        categories1 {
+          name
+        }
+        categories2 {
+          name
+        }
+        categories3 {
+          name
+        }
+        categories4 {
+          name
+        }
+        categories5 {
+          name
+        }
+        state
+        stateLogs {
+          remark
+        }
+      }
+    }
+    sizeCharts(sku: $sku, sortType: $sortType, sortBy: $sortBy) {
+      data {
+        name
+      }
+    }
+  }

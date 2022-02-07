@@ -1,0 +1,263 @@
+query orders($page: Int, $recordsPerPage: Int, $orderStatus: OrderStatusEnumType, $orderState: OrderStateEnumType) {
+      orders (
+            #type: ADMIN
+            #orderState:
+            #orderId: "89900006203"
+            #ssoId: "493553"
+            type: ADMIN
+            recordsPerPage: $recordsPerPage
+            page: $page
+            orderStatus: $orderStatus
+            orderState: $orderState
+            #fullName: "Ratvadee"
+            #email: "slipknotiowa3195@hotmail.com"
+            ) {
+                totalCount
+                recordsPerPage
+                data {
+                  id: orderId
+                  orderId
+                  timePlace
+                  carat {
+                      currentCarat
+                      redeemCaratPoint
+                      redeemCaratPrice
+                      earnCaratPoint
+                      earnSubtotal
+                  }
+                        customer{
+                            firstName
+                            email
+
+
+                        }
+                  unixTimeplaced
+                  orderStatus
+                  productSubtotal
+                  productDiscount
+                  subtotal
+                  shippingMethod
+                  shippingFee
+
+                    subOrders {
+                        subOrderId
+                            items{
+                                sku
+                                productName
+                            }
+
+                            shippingAddress{
+                                #id
+                                firstName
+                                lastName
+
+                            }
+                            flightDetail{
+                                lastName
+                                firstName
+                            }
+                        }
+                  shippingDiscount
+                  shippingTotal
+                  orderDiscount
+                  grandTotal
+                  orderSubtotal
+                  promoCode
+                  currencyCode
+                  orderLanguage
+                  paymentMethodName
+                  customerIp
+                  checkOutType
+                  taxInvoiceRequestable
+                    ... on OrderBackOfficeResponse{
+                        paymentCardIssuer
+                        isHold
+                        editOrderIsValid
+                        orderPromotions{
+                        name
+                        description
+                        startDate
+                        endDate
+                        description
+                        }
+                     }
+                  }
+           }
+    }
+
+
+query order(
+        $orderId: String!
+    ) {
+      order(
+        orderId: $orderId
+
+            #email: "sittisak.chumpreecha@kingpower.com"
+            type: ADMIN
+        ) {
+        orderId
+        promoCode
+        platform
+        caratTotal
+        carat {
+          currentCarat
+          redeemCaratPoint
+          redeemCaratPrice
+          earnCaratPoint
+          earnSubtotal
+        }
+        caratTotal
+        customer{
+            firstName
+            lastName
+            email
+            nationality
+            ssoId
+            phoneCode
+            mobile
+            addresses{
+                phoneCode
+                lastName
+                firstName
+                id
+                title
+                district
+                email
+            }
+        }
+        quantity
+        timePlace
+        unixTimeplaced
+        orderStatus
+        productSubtotal
+        productDiscount
+        subtotal
+        orderDiscount
+        grandTotal
+        shippingMethod
+        shippingFee
+        shippingDiscount
+        shippingTotal
+        orderDiscount
+        grandTotal
+            orderSubtotal
+        promoCode
+        currencyCode
+        orderLanguage
+            paymentMethodName
+        customerIp
+        checkOutType
+        company
+        subOrders {
+          subtotal
+          productDiscount
+          orderDiscount
+          orderSubTotal
+          grandTotal
+          shippingMethod
+          flightDetail {airlineCode
+            flightNo
+          airportCode}
+          carat {caratEarn {caratTotal}}
+
+    # 			flightDetail{
+    # 				firstName
+    # 				lastName
+    # 				mobile
+    # 				airlineCode
+    #         airportCode
+    #         pickupCounterCode
+    #         terminal
+    #         flightDate
+
+
+    #         }
+    # 			shippingAddress{
+    # 				email
+    # 			phoneCode
+    # 				province
+    # 				district
+    # 				mobile
+    # 			}
+          subOrderId
+          quantity
+          shippingMethod
+          status
+          displayStatus
+          productSubtotal
+          productDiscount
+          subtotal
+          orderDiscount
+          logisticName
+          logisticId
+
+          items{
+            ... on OrderItem{
+                    sku
+                    isGWP
+                    unitPrice
+                    receiveQuantity
+                    gwpReferencePromotionRule
+                    gwpReferenceSKUs {
+                        sku
+                        shipTo
+                    }
+                    shipTo
+                    variation {
+                        orderItemsId
+                    }
+                    productName
+                    quantity
+                    amount
+                    discountAmount
+                    netAmount
+                    isOutOfStock
+                     productImageURL {
+                        filename
+                        version
+                        prefix
+                        baseUri
+                      }
+            }
+          }
+        }
+        taxInvoiceRequestable
+        ... on OrderBackOfficeResponse {
+                viewOnly
+          cancellationReasons {cancelType
+          cancelDate
+          reasons {code
+          message
+          other}}
+          orderLogs {
+              values
+              username
+              unixTimestamp
+          }
+                paymentCardIssuer
+                orderStatus
+                isHold
+                editOrderIsValid
+                orderPromotions{
+                    name
+                    description
+                    startDate
+                    endDate
+                }
+          orderLogs {
+            unixTimestamp
+            values
+            username
+          }
+                paymentMethodImage
+                {
+                    filename
+                    prefix
+                    version
+                    version
+                }
+
+        }
+      }
+}
+

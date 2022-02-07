@@ -1,0 +1,9 @@
+schema: 'https://sp-api.kpc-dev.com'
+documents: './src/**/*.graphql'
+generates:
+  ./src/graphql-generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+
