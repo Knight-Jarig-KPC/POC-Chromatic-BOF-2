@@ -45,7 +45,8 @@
     "eject": "react-scripts eject",
     "codegen": "graphql-codegen --config codegen.yml",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=7ad5ac160391"
   },
   "eslintConfig": {
     "extends": [

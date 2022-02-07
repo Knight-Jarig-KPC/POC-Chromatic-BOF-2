@@ -33,7 +33,7 @@ const Tab = styled(TabUnstyled)`
   font-size: 0.875rem;
   font-weight: bold;
   background-color: transparent;
-  width: 18%;
+  width: 20%;
   padding: 12px 16px;
   margin: 6px 6px;
   border: none;
